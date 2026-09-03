@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SolarWM — Open Data and Scalable Training for Long-Horizon Video World Models">
+    <meta property="og:image" content="assets/images/solar_teaser-cover.png">
+    <title>
+      SolarWM — Open Data and Scalable Training for Long-Horizon Video World Models
+    </title>
+    <link rel="stylesheet" href="styles.css?v=132">
+  </head>
+  <body>
+    <div class="intro-scroll" id="intro-scroll">
+      <section class="intro-screen" id="intro-screen" aria-label="SolarWM introduction">
+        <div class="intro-video-plane intro-video-wall" id="intro-video-wall" aria-hidden="true">
+          <div class="intro-video-grid" id="intro-video-grid"></div>
+        </div>
+        <div class="logo-mask-layer" id="logo-mask-layer" aria-hidden="true">
+          <p class="logo-mask-text" id="logo-mask-text">Sola<span id="logo-mask-focus">r</span>WM</p>
+        </div>
+        <div class="intro-content" id="intro-content">
+          <p class="intro-kicker">SolarWM / WORLD MODELING</p>
+          <h1 class="intro-title">
+            <span class="logo-slot" id="logo-slot">SolarWM</span>
+            <span class="intro-paper-title">Open Data and Scalable Training for Long-Horizon Video World Models</span>
+          </h1>
+          <div class="intro-authors" aria-label="Authors and affiliations">
+            <div class="intro-author-list">
+              <p class="intro-author-row">
+                <a href="https://junchao-cs.github.io/" target="_blank" rel="noopener noreferrer">Junchao Huang<sup>1,2</sup></a><a href="https://enderfga.cn/" target="_blank" rel="noopener noreferrer">Guian Fang<sup>3</sup></a><a href="http://thesouthfrog.com/about.me/" target="_blank" rel="noopener noreferrer">Shengju Qian<sup>4</sup></a><a href="https://refkxh.github.io/" target="_blank" rel="noopener noreferrer">Xianghao Kong<sup>5</sup></a><a href="https://alicezrzhao.github.io/" target="_blank" rel="noopener noreferrer">Zhuoran Zhao<sup>5,6</sup></a>
+              </p>
+              <p class="intro-author-row">
+                <a href="https://aaron-weihuang.com/" target="_blank" rel="noopener noreferrer">Wei Huang<sup>7</sup></a><a href="https://hit-perfect.github.io/" target="_blank" rel="noopener noreferrer">Yihua Du<sup>6</sup></a><span class="intro-author-static">Zixin Zhang<sup>6</sup></span><a href="https://justincui03.github.io/" target="_blank" rel="noopener noreferrer">Justin Cui<sup>8</sup></a><a href="https://ycgu.site/" target="_blank" rel="noopener noreferrer">Yuchao Gu<sup>7</sup></a><a href="https://yukangchen.com/" target="_blank" rel="noopener noreferrer">Yukang Chen<sup>7</sup></a><a href="https://joyhuyy1412.github.io/" target="_blank" rel="noopener noreferrer">Xinting Hu</a>
+              </p>
+              <p class="intro-author-row">
+                <a href="https://www.microsoft.com/en-us/research/people/tianyuhe/" target="_blank" rel="noopener noreferrer">Tianyu He<sup>9</sup></a><a href="https://shishaoshuai.com/" target="_blank" rel="noopener noreferrer">Shaoshuai Shi</a><a href="https://zhuotaotian.github.io/" target="_blank" rel="noopener noreferrer">Zhuotao Tian<sup>2</sup></a><span class="intro-author-static">Xin Wang</span><a href="https://sites.google.com/view/showlab" target="_blank" rel="noopener noreferrer">Mike Zheng Shou<sup>3</sup></a><a href="https://llijiang.github.io/" target="_blank" rel="noopener noreferrer">Li Jiang<sup>1,2</sup></a>
+              </p>
+            </div>
+            <p class="intro-affiliations"><span><sup>1</sup>CUHK-SZ</span><span><sup>2</sup>SLAI</span><span><sup>3</sup>NUS</span><span><sup>4</sup>CUHK</span><span><sup>5</sup>HKUST</span><span><sup>6</sup>HKUST-GZ</span><span><sup>7</sup>NVIDIA</span><span><sup>8</sup>UCLA</span><span><sup>9</sup>MSRA</span></p>
+          </div>
+          <div class="project-links intro-project-links">
+            <a class="project-link" href="https://arxiv.org/pdf/2609.02886" target="_blank" rel="noopener noreferrer">
+              <span class="icon icon--arxiv"><img src="assets/icons/arxiv.svg" alt=""></span>
+              <span>Paper</span>
+            </a>
+            <a class="project-link" href="https://github.com/Junchao-cs/SolarWM" target="_blank" rel="noopener noreferrer">
+              <span class="icon"><img src="assets/icons/github.svg" alt=""></span>
+              <span>Code</span>
+            </a>
+            <a class="project-link" href="https://huggingface.co/collections/junchaoh-cs/solarwm" target="_blank" rel="noopener noreferrer">
+              <span class="icon icon--huggingface"><img src="assets/icons/huggingface.svg" alt=""></span>
+              <span>Checkpoint</span>
+            </a>
+            <a class="project-link" href="https://huggingface.co/datasets/junchaoh-cs/SolarWM-Data" target="_blank" rel="noopener noreferrer" aria-label="SolarWM dataset on Hugging Face">
+              <span class="icon icon--huggingface"><img src="assets/icons/huggingface.svg" alt=""></span>
+              <span>Dataset</span>
+            </a>
+            <a class="project-link" href="https://modelscope.cn/datasets/junchao2003/SolarWM-Data" target="_blank" rel="noopener noreferrer" aria-label="SolarWM dataset on ModelScope">
+              <span class="icon icon--modelscope"><img src="assets/icons/modelscope.svg" alt=""></span>
+              <span>Dataset</span>
+            </a>
+            <a class="project-link project-link--access" href="https://docs.google.com/forms/d/e/1FAIpQLSfS-SLOiSRVDWwZ2kPl9ywN27aB6QplN0jpdKaBu-gG8aNsvQ/viewform" target="_blank" rel="noopener noreferrer">
+              <span class="icon icon--access" aria-hidden="true">↗</span>
+              <span>Dataset Access Form</span>
+            </a>
+          </div>
+        </div>
+        <p class="intro-footnote">OPEN INFRASTRUCTURE · 2026</p>
+        <div class="intro-hint" id="intro-hint" aria-hidden="true">
+          <div class="intro-start-cue">
+            <div class="intro-start-logo"><strong>SolarWM</strong></div>
+            <span class="intro-start-prompt">SCROLL TO EXPLORE</span>
+            <i></i>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="site-shell">
+    <nav class="nav">
+      <a class="brand cover-link" href="#cover" aria-controls="intro-screen"><span>SolarWM</span></a>
+      <div class="navlinks">
+        <a class="cover-link" href="#cover" aria-controls="intro-screen">Cover</a><a href="#overview">Overview</a><a href="#features">Features</a><a href="#demos">Demos</a><a href="#citation">Citation</a>
+      </div>
+    </nav>
+    <main>
+      <div class="story-dark" id="story">
+      <section class="overview-section" id="overview">
+        <div class="overview-content">
+        <header class="overview-head">
+          <div class="label">01 / OVERVIEW</div>
+        </header>
+        <div class="showcase-video">
+          <video controls muted loop playsinline preload="metadata" poster="assets/images/solar_teaser-cover.png?v=1">
+            <source src="https://media.githubusercontent.com/media/Junchao-cs/SolarWM-Web/main/assets/demo.mp4?v=f434755" type="video/mp4">
+            Your browser does not support video.
+          </video>
+        </div>
+        <div class="overview-copy sound-prompt" role="note" aria-label="Turn the sound on for the best experience">
+          <img class="sound-prompt-icon" src="assets/icons/easy.png" alt="" aria-hidden="true">
+          <p>Turn the sound on for the best experience.</p>
+        </div>
+        </div>
+      </section>
+      <section class="key-features" id="features" aria-labelledby="key-features-title">
+        <div class="key-features-inner">
+          <p class="key-features-label" id="key-features-title">KEY FEATURES</p>
+          <div class="key-features-grid">
+            <article class="key-feature">
+              <p>EFFICIENT REAL-TIME INFERENCE</p>
+              <h3>Imagine worlds.<br>Interact in real time.</h3>
+              <span>Trained only on five-second clips, the model enables minute-scale and even hour-scale real-time inference while preserving responsive interaction and coherent world evolution over extended rollouts.</span>
+            </article>
+            <article class="key-feature" id="dataset">
+              <p>OPEN DATA PIPELINE</p>
+              <h3>1.43M clips · 25 TB of data.<br>Fully open.</h3>
+              <span>We release the complete data-processing stack: scale-consistent camera annotations, fine-grained filtering, and multiple training recipes.</span>
+              <div class="key-feature-links" aria-label="Explore the SolarWM dataset">
+                <span class="key-feature-links-label">Explore the dataset</span>
+                <a class="key-feature-platform-link" href="https://huggingface.co/datasets/junchaoh-cs/SolarWM-Data" target="_blank" rel="noopener noreferrer" aria-label="Explore the SolarWM dataset on Hugging Face">
+                  <img src="assets/icons/huggingface.svg" alt="">
+                </a>
+                <a class="key-feature-platform-link key-feature-platform-link--modelscope" href="https://modelscope.cn/datasets/junchao2003/SolarWM-Data" target="_blank" rel="noopener noreferrer" aria-label="Explore the SolarWM dataset on ModelScope">
+                  <img src="assets/icons/modelscope.svg" alt="">
+                </a>
+              </div>
+            </article>
+            <article class="key-feature">
+              <p>ONE FRAMEWORK, MANY BACKBONES</p>
+              <h3>1 framework.<br>4 base models.</h3>
+              <span>A unified framework supports state-of-the-art video models across architectures and parameter scales, including SolarWM-Wan-5B, SolarWM-Wan-14B, SolarWM-LTX-2.5, and SolarWM-Minimax-H3.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="indomain-cases" id="demos" aria-label="SolarWM demos">
+        <div class="label demos-label">02 / DEMOS</div>
+
+        <div class="model-selector" role="group" aria-label="Select a model for the demo gallery">
+          <button class="model-option is-active" type="button" data-demo-model="wan-5b" aria-pressed="true">SolarWM-Wan-5B</button>
+          <button class="model-option" type="button" data-demo-model="wan-14b" aria-pressed="false">SolarWM-Wan-14B</button>
+          <button class="model-option" type="button" data-demo-model="ltx-2.5" aria-pressed="false">SolarWM-LTX-2.5</button>
+          <button class="model-option" type="button" data-demo-model="minimax-h3" aria-pressed="false">SolarWM-Minimax-H3</button>
+        </div>
+
+        <div class="model-demo-content" id="model-demo-content">
+
+        <p class="model-generation-note">Generated by the SolarWM-Wan-5B Causal Student (4 steps)</p>
+
+        <div class="case-chapter">
+          <div class="case-video-grid" id="indomain-grid" aria-label="Selected 10-second and 60-second in-domain generations"></div>
+        </div>
+        </div>
+
+        <div class="model-bidirectional-content" id="model-bidirectional-content" hidden>
+          <p class="model-generation-note" id="model-bidirectional-note">Generated by the selected Bidirectional Model</p>
+          <div class="case-chapter bidirectional-case-chapter">
+            <div class="case-video-grid" id="bidirectional-grid" aria-label="Selected model generations"></div>
+          </div>
+        </div>
+      </section>
+      </div>
+      <section class="citation" id="citation">
+        <div class="label">
+          06 / CITATION
+        </div>
+        <div class="citation-grid">
+          <pre><code>@misc{huang2026solarwmopendatascalable,
+  title={SolarWM: Open Data and Scalable Training for Long-Horizon Video World Models},
+  author={Junchao Huang and Guian Fang and Shengju Qian and Xianghao Kong and Zhuoran Zhao and Wei Huang and Yihua Du and Zixin Zhang and Justin Cui and Yuchao Gu and Yukang Chen and Xinting Hu and Tianyu He and Shaoshuai Shi and Zhuotao Tian and Xin Wang and Mike Zheng Shou and Li Jiang},
+  year={2026},
+  eprint={2609.02886},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2609.02886},
+}</code></pre>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <a class="brand cover-link" href="#cover" aria-controls="intro-screen"><span>SolarWM</span></a>
+      <p>
+        Open infrastructure for world modeling.
+      </p>
+      <div class="footer-links">
+        <a href="mailto:junchaoh.cs@gmail.com">Email</a><a href="#citation">Report</a><a class="cover-link" href="#cover" aria-controls="intro-screen">Back to top ↑</a>
+      </div>
+    </footer>
+    </div>
+    <script src="assets/demo-manifest.js?v=4"></script>
+  <script src="script.js?v=112"></script>
+  </body>
+</html>

@@ -1,1 +1,3 @@
 assets/demo.mp4 filter=lfs diff=lfs merge=lfs -text
+assets/demo-compare.MP4 filter=lfs diff=lfs merge=lfs -text
+assets/demo1.mp4 filter=lfs diff=lfs merge=lfs -text

@@ -432,6 +432,157 @@ function showCover(event) {
   window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
 }
 
+const overviewCarousel = document.querySelector("#overview-carousel");
+
+if (overviewCarousel) {
+  const slides = [...overviewCarousel.querySelectorAll(".overview-video-slide")];
+  const videos = slides.map((slide) => slide.querySelector("video"));
+  const dots = [...overviewCarousel.querySelectorAll("[data-carousel-dot]")];
+  const previousButton = overviewCarousel.querySelector("[data-carousel-prev]");
+  const nextButton = overviewCarousel.querySelector("[data-carousel-next]");
+  const status = overviewCarousel.querySelector(".overview-carousel-status");
+  const autoplayDelay = 5600;
+  let activeIndex = 0;
+  let autoplayTimer = 0;
+  let isPointerInside = false;
+  let isCarouselVisible = true;
+  let lockedVideo = null;
+
+  function clearCarouselTimer() {
+    window.clearTimeout(autoplayTimer);
+    autoplayTimer = 0;
+  }
+
+  function canAutoplayCarousel() {
+    return !reduceMotion.matches
+      && !isPointerInside
+      && !overviewCarousel.contains(document.activeElement)
+      && !lockedVideo
+      && isCarouselVisible
+      && !document.hidden;
+  }
+
+  function scheduleCarousel() {
+    clearCarouselTimer();
+    if (!canAutoplayCarousel()) return;
+    autoplayTimer = window.setTimeout(() => {
+      showCarouselSlide(activeIndex + 1);
+    }, autoplayDelay);
+  }
+
+  function updateCarouselStatus() {
+    if (!status) return;
+    const count = String(slides.length).padStart(2, "0");
+    const current = String(activeIndex + 1).padStart(2, "0");
+    status.textContent = lockedVideo ? `Playing · ${current} / ${count}` : `${current} / ${count}`;
+  }
+
+  function showCarouselSlide(nextIndex, { announce = false } = {}) {
+    activeIndex = (nextIndex + slides.length) % slides.length;
+
+    slides.forEach((slide, index) => {
+      const relativePosition = (index - activeIndex + slides.length) % slides.length;
+      const isActive = relativePosition === 0;
+      slide.classList.toggle("is-active", isActive);
+      slide.classList.toggle("is-next", relativePosition === 1);
+      slide.classList.toggle("is-prev", relativePosition === slides.length - 1);
+      slide.setAttribute("aria-current", isActive ? "true" : "false");
+      videos[index].tabIndex = isActive ? 0 : -1;
+    });
+
+    dots.forEach((dot, index) => {
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      if (isActive) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+
+    const activeVideo = videos[activeIndex];
+    if (activeVideo.readyState === HTMLMediaElement.HAVE_NOTHING) {
+      activeVideo.preload = "metadata";
+      activeVideo.load();
+    }
+
+    updateCarouselStatus();
+    if (announce) status?.setAttribute("aria-atomic", "true");
+    scheduleCarousel();
+  }
+
+  function releaseLockedVideo({ pause = false } = {}) {
+    if (!lockedVideo) return;
+    const video = lockedVideo;
+    lockedVideo = null;
+    overviewCarousel.classList.remove("is-playing");
+    if (pause && !video.paused) video.pause();
+    updateCarouselStatus();
+  }
+
+  function navigateCarousel(nextIndex) {
+    releaseLockedVideo({ pause: true });
+    showCarouselSlide(nextIndex, { announce: true });
+  }
+
+  slides.forEach((slide, index) => {
+    slide.addEventListener("click", () => {
+      if (index !== activeIndex) navigateCarousel(index);
+    });
+  });
+
+  videos.forEach((video, index) => {
+    video.addEventListener("play", () => {
+      lockedVideo = video;
+      videos.forEach((otherVideo) => {
+        if (otherVideo !== video && !otherVideo.paused) otherVideo.pause();
+      });
+      overviewCarousel.classList.add("is-playing");
+      showCarouselSlide(index, { announce: true });
+      clearCarouselTimer();
+    });
+
+    video.addEventListener("pause", () => {
+      if (lockedVideo !== video) return;
+      lockedVideo = null;
+      overviewCarousel.classList.remove("is-playing");
+      updateCarouselStatus();
+      scheduleCarousel();
+    });
+  });
+
+  previousButton?.addEventListener("click", () => navigateCarousel(activeIndex - 1));
+  nextButton?.addEventListener("click", () => navigateCarousel(activeIndex + 1));
+  dots.forEach((dot, index) => dot.addEventListener("click", () => navigateCarousel(index)));
+
+  overviewCarousel.addEventListener("pointerenter", () => {
+    isPointerInside = true;
+    clearCarouselTimer();
+  });
+
+  overviewCarousel.addEventListener("pointerleave", () => {
+    isPointerInside = false;
+    scheduleCarousel();
+  });
+
+  overviewCarousel.addEventListener("focusin", clearCarouselTimer);
+  overviewCarousel.addEventListener("focusout", () => window.setTimeout(scheduleCarousel, 0));
+  overviewCarousel.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    navigateCarousel(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
+  });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      isCarouselVisible = entry.isIntersecting;
+      if (isCarouselVisible) scheduleCarousel();
+      else clearCarouselTimer();
+    }, { threshold: .16 }).observe(overviewCarousel);
+  }
+
+  document.addEventListener("visibilitychange", scheduleCarousel);
+  reduceMotion.addEventListener?.("change", scheduleCarousel);
+  showCarouselSlide(0);
+}
+
 const inDomainGalleryCases = [
   ["10s", "0038-000074_cool_autumn_woodland_reservoir_park_krea_image2_019-gen.mp4"],
   ["60s", "e730eed5dde558b57f44d432f554b11e89f528bb6349deedc86662d4e7d8ff22-gen.mp4"],

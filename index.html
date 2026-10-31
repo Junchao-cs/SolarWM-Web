@@ -8,7 +8,7 @@
     <title>
       SolarWM — Open Data and Scalable Training for Long-Horizon Video World Models
     </title>
-    <link rel="stylesheet" href="styles.css?v=133">
+    <link rel="stylesheet" href="styles.css?v=134">
   </head>
   <body>
     <div class="intro-scroll" id="intro-scroll">
@@ -93,19 +93,43 @@
         <div class="overview-carousel" id="overview-carousel" role="region" aria-roledescription="carousel" aria-label="SolarWM overview videos" tabindex="0">
           <div class="overview-carousel-viewport">
             <div class="overview-carousel-track">
-              <article class="overview-video-slide is-active" data-carousel-index="0" aria-label="Overview, video 1 of 3">
+              <article class="overview-video-slide is-active" data-carousel-index="0" aria-label="SolarWM project film, video 1 of 5">
                 <div class="showcase-video">
-                  <video controls loop playsinline preload="metadata" poster="assets/images/solar_teaser-cover.png?v=1" aria-label="SolarWM overview video">
-                    <source src="https://media.githubusercontent.com/media/Junchao-cs/SolarWM-Web/main/assets/demo.mp4?v=f434755" type="video/mp4">
+                  <video controls loop playsinline preload="metadata" poster="assets/images/solarwm-overview-poster.jpg" aria-label="SolarWM project film">
+                    <source src="assets/solarwm-overview.mp4" type="video/mp4">
                     Your browser does not support video.
                   </video>
                 </div>
                 <div class="overview-video-caption">
                   <span>01</span>
+                  <h3>SolarWM <em>·</em> Project Film</h3>
+                </div>
+              </article>
+              <article class="overview-video-slide is-next" data-carousel-index="1" aria-label="Overview, video 2 of 5">
+                <div class="showcase-video">
+                  <video controls loop playsinline preload="none" poster="assets/images/solar_teaser-cover.png?v=1" aria-label="SolarWM overview video">
+                    <source src="https://media.githubusercontent.com/media/Junchao-cs/SolarWM-Web/main/assets/demo.mp4?v=f434755" type="video/mp4">
+                    Your browser does not support video.
+                  </video>
+                </div>
+                <div class="overview-video-caption">
+                  <span>02</span>
                   <h3>Overview</h3>
                 </div>
               </article>
-              <article class="overview-video-slide is-next" data-carousel-index="1" aria-label="SolarWM-H3-4Steps-AR versus LingBot V2, video 2 of 3">
+              <article class="overview-video-slide" data-carousel-index="2" aria-label="SolarWM real-time operation, video 3 of 5">
+                <div class="showcase-video">
+                  <video controls loop playsinline preload="none" poster="assets/images/solarwm-realtime-operation-poster.jpg" aria-label="SolarWM real-time operation video">
+                    <source src="assets/solarwm-realtime-operation.mp4" type="video/mp4">
+                    Your browser does not support video.
+                  </video>
+                </div>
+                <div class="overview-video-caption">
+                  <span>03</span>
+                  <h3>SolarWM <em>·</em> Real-Time Operation</h3>
+                </div>
+              </article>
+              <article class="overview-video-slide" data-carousel-index="3" aria-label="SolarWM-H3-4Steps-AR versus LingBot V2, video 4 of 5">
                 <div class="showcase-video">
                   <video controls loop playsinline preload="none" aria-label="SolarWM-H3-4Steps-AR and LingBot V2 comparison video">
                     <source src="https://media.githubusercontent.com/media/Junchao-cs/SolarWM-Web/main/assets/demo-compare.MP4?v=c3cfced" type="video/mp4">
@@ -113,11 +137,11 @@
                   </video>
                 </div>
                 <div class="overview-video-caption">
-                  <span>02</span>
+                  <span>04</span>
                   <h3>SolarWM-H3-4Steps-AR <em>vs.</em> LingBot V2</h3>
                 </div>
               </article>
-              <article class="overview-video-slide is-prev" data-carousel-index="2" aria-label="SolarWM-H3-4Steps-AR zero-shot real-time interactive game, video 3 of 3">
+              <article class="overview-video-slide is-prev" data-carousel-index="4" aria-label="SolarWM-H3-4Steps-AR zero-shot real-time interactive game, video 5 of 5">
                 <div class="showcase-video">
                   <video controls loop playsinline preload="none" aria-label="SolarWM-H3-4Steps-AR zero-shot real-time interactive game video">
                     <source src="https://media.githubusercontent.com/media/Junchao-cs/SolarWM-Web/main/assets/demo1.mp4?v=f51d69d" type="video/mp4">
@@ -125,7 +149,7 @@
                   </video>
                 </div>
                 <div class="overview-video-caption">
-                  <span>03</span>
+                  <span>05</span>
                   <h3>SolarWM-H3-4Steps-AR <em>·</em> Zero-Shot Real-Time Interactive Game</h3>
                 </div>
               </article>
@@ -134,11 +158,13 @@
           <div class="overview-carousel-controls">
             <button class="overview-carousel-arrow" type="button" data-carousel-prev aria-label="Show previous video"><span aria-hidden="true">&#8592;</span></button>
             <div class="overview-carousel-dots" role="group" aria-label="Choose an overview video">
-              <button class="overview-carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Show Overview" aria-current="true"></button>
-              <button class="overview-carousel-dot" type="button" data-carousel-dot="1" aria-label="Show SolarWM and LingBot comparison"></button>
-              <button class="overview-carousel-dot" type="button" data-carousel-dot="2" aria-label="Show zero-shot interactive game"></button>
+              <button class="overview-carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Show SolarWM project film" aria-current="true"></button>
+              <button class="overview-carousel-dot" type="button" data-carousel-dot="1" aria-label="Show Overview"></button>
+              <button class="overview-carousel-dot" type="button" data-carousel-dot="2" aria-label="Show real-time operation"></button>
+              <button class="overview-carousel-dot" type="button" data-carousel-dot="3" aria-label="Show SolarWM and LingBot comparison"></button>
+              <button class="overview-carousel-dot" type="button" data-carousel-dot="4" aria-label="Show zero-shot interactive game"></button>
             </div>
-            <p class="overview-carousel-status" aria-live="polite">01 / 03</p>
+            <p class="overview-carousel-status" aria-live="polite">01 / 05</p>
             <button class="overview-carousel-arrow" type="button" data-carousel-next aria-label="Show next video"><span aria-hidden="true">&#8594;</span></button>
           </div>
         </div>
@@ -234,6 +260,6 @@
     </footer>
     </div>
     <script src="assets/demo-manifest.js?v=4"></script>
-  <script src="script.js?v=115"></script>
+  <script src="script.js?v=116"></script>
   </body>
 </html>

@@ -483,10 +483,12 @@ if (overviewCarousel) {
     slides.forEach((slide, index) => {
       const relativePosition = (index - activeIndex + slides.length) % slides.length;
       const isActive = relativePosition === 0;
+      const isVisible = isActive || relativePosition === 1 || relativePosition === slides.length - 1;
       slide.classList.toggle("is-active", isActive);
       slide.classList.toggle("is-next", relativePosition === 1);
       slide.classList.toggle("is-prev", relativePosition === slides.length - 1);
       slide.setAttribute("aria-current", isActive ? "true" : "false");
+      slide.setAttribute("aria-hidden", isVisible ? "false" : "true");
       videos[index].tabIndex = isActive ? 0 : -1;
     });
 

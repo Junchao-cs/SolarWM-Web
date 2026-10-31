@@ -3056,6 +3056,12 @@ h2 {
   cursor:pointer
 }
 
+.overview-video-slide:not(.is-active):not(.is-prev):not(.is-next) {
+  opacity:0;
+  pointer-events:none;
+  visibility:hidden
+}
+
 .overview-video-slide:not(.is-active) video {
   pointer-events:none
 }

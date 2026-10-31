@@ -500,7 +500,7 @@ if (overviewCarousel) {
     });
 
     const activeVideo = videos[activeIndex];
-    if (activeVideo.readyState === HTMLMediaElement.HAVE_NOTHING) {
+    if (activeVideo.preload === "none") {
       activeVideo.preload = "metadata";
       activeVideo.load();
     }
